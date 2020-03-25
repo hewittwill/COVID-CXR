@@ -49,7 +49,7 @@ model.summary()
 
 print('START MODEL TRAINING')
 
-model.fit_generator(generator=train_generator, validation_split=0.1, epochs=10)
+model.fit_generator(generator=train_generator, validation_data=val_generator, epochs=10)
 
 model.save('models/25032020_covid_simple_net.h5')
 
