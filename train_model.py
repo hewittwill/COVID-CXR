@@ -47,3 +47,15 @@ model.compile(loss=k.losses.categorical_crossentropy,
 
 model.summary()
 
+print('START MODEL TRAINING')
+
+STEP_SIZE_TRAIN=train_generator.n//train_generator.batch_size
+STEP_SIZE_VALID=val_generator.n//val_generator.batch_size
+model.fit_generator(generator=train_generator,
+                    steps_per_epoch=STEP_SIZE_TRAIN,
+                    validation_data=val_generator,
+                    validation_steps=STEP_SIZE_VALID,
+                    epochs=10)
+
+model.save('models/25032020_covid_simple_net.h5')
+
