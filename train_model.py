@@ -4,9 +4,9 @@ k = tf.keras
 
 from models import simple_covid_net
 
-train_datagen = k.preprocessing.ImageDataGenerator()
-val_datagen = k.preprocessing.ImageDataGenerator()
-test_datagen = k.preprocessing.ImageDataGenerator()
+train_datagen = k.preprocessing.image.ImageDataGenerator()
+val_datagen = k.preprocessing.image.ImageDataGenerator()
+test_datagen = k.preprocessing.image.ImageDataGenerator()
 
 model = simple_covid_net()
 
