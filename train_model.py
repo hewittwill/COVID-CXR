@@ -4,6 +4,9 @@ k = tf.keras
 
 from models import simple_covid_net
 
+logdir = "logs/scalars/" + datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = k.callbacks.TensorBoard(log_dir=logdir)
+
 train_datagen = k.preprocessing.image.ImageDataGenerator()
 val_datagen = k.preprocessing.image.ImageDataGenerator()
 test_datagen = k.preprocessing.image.ImageDataGenerator()
@@ -49,7 +52,7 @@ model.summary()
 
 print('START MODEL TRAINING')
 
-model.fit_generator(generator=train_generator, validation_data=val_generator, epochs=10)
+model.fit_generator(generator=train_generator, validation_data=val_generator, verbose=0, epochs=30, callbacks=[tensorboard_callback])
 
-model.save('models/25032020_covid_simple_net.h5')
+model.save('models/' + datetime.now().strftime("%Y%m%d-%H%M%S") + '_covid_simple_net.h5')
 
