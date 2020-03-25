@@ -41,7 +41,7 @@ val_generator = val_datagen.flow_from_directory(
 )
 
 model.compile(loss=k.losses.categorical_crossentropy,
-              optimizer=k.optizers.Adadelta(),
+              optimizer=k.optimizers.Adadelta(),
               metrics=['accuracy'])
 
 
