@@ -1,8 +1,6 @@
 import os
 import random
 
-import numpy as np
-
 from shutil import copyfile
 
 bacterial, normal, viral = [], [], []
