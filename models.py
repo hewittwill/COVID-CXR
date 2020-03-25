@@ -22,3 +22,12 @@ def simple_covid_net():
     covid_net.add(k.layers.Dense(3, activation='softmax'))
 
     return covid_net
+
+def covid_inception():
+
+    base_model = k.applications.inception_v3.InceptionV3(weights='imagenet', include_top=False, input_shape=(224, 224, 1))
+
+    
+
+
+
