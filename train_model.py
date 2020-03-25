@@ -35,8 +35,8 @@ val_generator = val_datagen.flow_from_directory(
     target_size=(224, 224),
     color_mode="grayscale",
     batch_size=1,
-    class_mode=None,
-    shuffle=False,
+    class_mode="categorical",
+    shuffle=True,
     seed=42
 )
 
