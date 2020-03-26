@@ -1,6 +1,5 @@
 # CUSTOM
 .DS_Store
-data/*/*/.*
 raw/
 models/
 
