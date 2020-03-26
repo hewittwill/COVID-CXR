@@ -2,6 +2,10 @@ from datetime import datetime
 
 import tensorflow as tf
 
+from comet_ml import Experiment
+experiment = Experiment(api_key="kjtwDS5TtTs4f3BRYQxzbd794",
+                        project_name="covid-cxr", workspace="hewittwill")
+
 k = tf.keras
 
 from models import simple_covid_net
