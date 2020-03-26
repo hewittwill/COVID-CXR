@@ -59,7 +59,7 @@ model.summary()
 
 print('START MODEL TRAINING')
 
-model.fit_generator(generator=train_generator, validation_data=val_generator, epochs=50, callbacks=[tensorboard_callback])
+model.fit_generator(generator=train_generator, validation_data=val_generator, epochs=100, callbacks=[tensorboard_callback])
 
 model.save('models/' + datetime.now().strftime("%Y%m%d-%H%M%S") + '_covid_inception_net.h5')
 
