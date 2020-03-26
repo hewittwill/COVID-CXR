@@ -26,7 +26,7 @@ def simple_covid_net():
 
 def covid_inception():
 
-    base_model = k.applications.inception_v3.InceptionV3(weights='imagenet', include_top=False, input_shape=(224, 224, 1))
+    base_model = k.applications.inception_v3.InceptionV3(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
 
     ##################################
     # SECOND EXPERIMENT - Inception  #
