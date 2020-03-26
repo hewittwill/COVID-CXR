@@ -19,7 +19,7 @@ def simple_covid_net():
     covid_net.add(k.layers.Flatten())
     covid_net.add(k.layers.Dense(128, activation='relu'))
     covid_net.add(k.layers.Dropout(0.5))
-    covid_net.add(k.layers.Dense(3, activation='softmax'))
+    covid_net.add(k.layers.Dense(4, activation='softmax'))
 
     return covid_net
 
@@ -31,6 +31,6 @@ def covid_inception():
     # SECOND EXPERIMENT - Inception  #
     ##################################
 
-    
+
 
 

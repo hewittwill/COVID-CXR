@@ -68,7 +68,7 @@ with open('raw/covid-chestxray-dataset/metadata.csv') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=',')
     for line in csv_reader:
         if 'PA' in line[6] and 'COVID' in line[4]:
-            covid.append('raw/covid-chestxray-dataset/images' + str(line[10]))
+            covid.append('raw/covid-chestxray-dataset/images/' + str(line[10]))
         
 # EXPORT covid DATA
 random.shuffle(covid)
