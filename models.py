@@ -35,9 +35,9 @@ def covid_inception():
     x = base_model.output
     x = k.layers.GlobalAveragePooling2D()(x)
 
-    x = Dense(1024, activation='relu')(x)
+    x = k.layers.Dense(1024, activation='relu')(x)
 
-    prediction_layer = Dense(4, activation='softmax')(x)
+    prediction_layer = k.layers.Dense(4, activation='softmax')(x)
 
     model = k.models.Model(inputs=base_model.input, outputs=prediction_layer)
 
