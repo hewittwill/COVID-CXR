@@ -32,6 +32,22 @@ def covid_inception():
     # SECOND EXPERIMENT - Inception  #
     ##################################
 
+    x = base_model.output
+    x = k.layers.GlobalAveragePooling2D()(x)
+
+    x = Dense(1024, activation='relu')(x)
+
+    prediction_layer = Dense(4, activation='softmax')(x)
+
+    model = k.models.Model(inputs=base_model.input, outputs=prediction_layer)
+
+    for layer in base_model.layers:
+        layer.trainable = False
+
+    return model
+
+
+
 
 
 

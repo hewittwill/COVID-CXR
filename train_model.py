@@ -9,7 +9,7 @@ experiment = Experiment(api_key="kjtwDS5TtTs4f3BRYQxzbd794",
 
 k = tf.keras
 
-from models import simple_covid_net
+from models import simple_covid_net, covid_inception
 
 logdir = "logs/scalars/" + datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = k.callbacks.TensorBoard(log_dir=logdir)
@@ -18,7 +18,7 @@ train_datagen = k.preprocessing.image.ImageDataGenerator()
 val_datagen = k.preprocessing.image.ImageDataGenerator()
 test_datagen = k.preprocessing.image.ImageDataGenerator()
 
-model = simple_covid_net()
+model = covid_inception()
 
 train_generator = train_datagen.flow_from_directory(
     directory="data/train",
@@ -51,7 +51,7 @@ val_generator = val_datagen.flow_from_directory(
 )
 
 model.compile(loss=k.losses.categorical_crossentropy,
-              optimizer=k.optimizers.Adadelta(),
+              optimizer='rmsprop',
               metrics=['accuracy'])
 
 
@@ -59,7 +59,7 @@ model.summary()
 
 print('START MODEL TRAINING')
 
-model.fit_generator(generator=train_generator, validation_data=val_generator, epochs=100, callbacks=[tensorboard_callback])
+model.fit_generator(generator=train_generator, validation_data=val_generator, epochs=10, callbacks=[tensorboard_callback])
 
-model.save('models/' + datetime.now().strftime("%Y%m%d-%H%M%S") + '_covid_simple_net.h5')
+model.save('models/' + datetime.now().strftime("%Y%m%d-%H%M%S") + '_covid_inception_net.h5')
 
