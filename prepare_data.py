@@ -104,10 +104,10 @@ for idx, bacterial_file in enumerate(bacterial[num_train+num_test:]):
 
 # PREPARE COVID DATA
 with open('raw/covid-chestxray-dataset/metadata.csv') as csvfile:
-    csv_reader = csv.reader(csvfile, delimiter=',')
+    csv_reader = csv.DictReader(csvfile, delimiter=',')
     for line in csv_reader:
-        if 'PA' in line[6] and 'COVID' in line[4]:
-            covid.append('raw/covid-chestxray-dataset/images/' + str(line[10]))
+        if 'PA' in line['view'] and 'COVID' in line['finding']:
+            covid.append('raw/covid-chestxray-dataset/images/' + str(line['filename']))
         
 # EXPORT covid DATA
 random.shuffle(covid)
